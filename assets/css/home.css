@@ -1,0 +1,32 @@
+/* home.css - estilos exclusivos da página inicial */
+
+.inicio {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+}
+
+.inicio-conteudo {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.inicio h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.inicio-descricao {
+  color: var(--cor-texto-suave);
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .inicio h1 {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,326 @@
+/* cardapio.css - cardápio, pedido, identificação, resumo, pagamento, confirmação */
+
+.tela {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container-estreito {
+  max-width: 560px;
+}
+
+/* Barra fixa com botão Meu Pedido */
+.barra-pedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.link-voltar-inicio {
+  text-decoration: none;
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+}
+
+/* Ferramentas: pesquisa e filtro */
+.ferramentas {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+#campo-pesquisa {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 3px;
+  font-size: 15px;
+  background-color: var(--cor-cartao);
+}
+
+#filtro-categoria {
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 3px;
+  font-size: 15px;
+  background-color: var(--cor-cartao);
+}
+
+/* Menu de categorias */
+.menu-categorias {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 12px 0;
+  margin-bottom: 24px;
+}
+
+.menu-categorias a {
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--cor-texto);
+  padding: 6px 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 3px;
+}
+
+.menu-categorias a:hover {
+  background-color: var(--cor-destaque);
+  color: #FFFFFF;
+  border-color: var(--cor-destaque);
+}
+
+/* Seções de categoria */
+.secao-categoria {
+  margin-bottom: 40px;
+  scroll-margin-top: 16px;
+}
+
+.secao-categoria h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cor-destaque);
+  display: inline-block;
+}
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 1000px) {
+  .grade-produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .grade-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grade-produtos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card de produto */
+.cartao-produto {
+  background-color: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartao-produto .imagem-produto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--cor-cartao);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.cartao-produto .imagem-produto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cartao-produto .info-produto {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cartao-produto h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.cartao-produto .descricao-produto {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.cartao-produto .preco-produto {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cartao-produto button {
+  border: none;
+  border-radius: 3px;
+  padding: 8px;
+  background-color: var(--cor-principal);
+  color: #FFFFFF;
+  font-size: 13px;
+}
+
+.cartao-produto button:hover {
+  background-color: var(--cor-destaque);
+}
+
+.sem-resultado {
+  color: var(--cor-texto-suave);
+  padding: 20px 0;
+}
+
+/* Itens do pedido */
+.item-pedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.item-pedido .nome-item {
+  flex: 1;
+}
+
+.item-pedido .nome-item strong {
+  display: block;
+  font-size: 15px;
+}
+
+.item-pedido .nome-item span {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+.controle-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controle-quantidade button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-cartao);
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.item-pedido .valor-item {
+  min-width: 90px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.item-pedido .botao-remover {
+  border: none;
+  background: none;
+  color: var(--cor-erro);
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* Opção do garçom */
+.opcao-garcom {
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+/* Resumo de valores */
+.resumo-valores {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.linha-valor {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 15px;
+}
+
+.linha-total {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.acoes-tela {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* Formulário de identificação */
+#formulario-identificacao {
+  display: flex;
+  flex-direction: column;
+}
+
+#formulario-identificacao label {
+  font-size: 14px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+#formulario-identificacao input {
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.dados-cliente {
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.dados-cliente p {
+  margin: 4px 0;
+}
+
+#resumo-itens .item-pedido,
+#confirmacao-itens .item-pedido {
+  cursor: default;
+}
+
+/* Pagamento */
+.opcoes-pagamento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .acoes-tela {
+    flex-direction: column;
+  }
+
+  .acoes-tela .botao {
+    width: 100%;
+    text-align: center;
+  }
+}

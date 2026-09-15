@@ -1,0 +1,185 @@
+/*
+  base.css
+  Estilos compartilhados por todas as páginas: reset simples, variáveis
+  de cor/tipografia e o cabeçalho com as duas logos.
+*/
+
+:root {
+  --cor-fundo: #F9E7A8;
+  --cor-cartao: #FFFFFF;
+  --cor-texto: #35312A;
+  --cor-texto-suave: #6B6459;
+  --cor-borda: #E1D8C4;
+  --cor-principal: #35312A;
+  --cor-destaque: #A9834B;
+  --cor-destaque-escuro: #8C6B3A;
+  --cor-erro: #A64B3E;
+
+  --fonte-titulo: Georgia, "Times New Roman", serif;
+  --fonte-texto: Arial, Helvetica, sans-serif;
+
+  --largura-maxima: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: normal;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--fonte-texto);
+  cursor: pointer;
+}
+
+.container {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cabeçalho com as duas logos */
+.cabecalho {
+  border-bottom: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo);
+}
+
+.cabecalho .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo-restaurante img {
+  height: 92px;
+  width: auto;
+  max-width: 44vw;
+}
+
+.empresa-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 44vw;
+}
+
+.empresa-branding img {
+  height: 56px;
+  width: auto;
+  opacity: 0.85;
+  margin: 0 auto;
+}
+
+.empresa-branding span {
+  display: block;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* Rodapé simples */
+.rodape {
+  border-top: 1px solid var(--cor-borda);
+  margin-top: 40px;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+/* Botões */
+.botao {
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  padding: 12px 26px;
+  font-size: 15px;
+  background-color: var(--cor-principal);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background-color: #000000;
+}
+
+.botao-destaque {
+  background-color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque-escuro);
+}
+
+.botao-destaque:hover {
+  background-color: var(--cor-destaque-escuro);
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: var(--cor-principal);
+  border: 1px solid var(--cor-principal);
+}
+
+.botao-secundario:hover {
+  background-color: var(--cor-principal);
+  color: #FFFFFF;
+}
+
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .logo-restaurante img {
+    height: 72px;
+  }
+
+  .empresa-branding img {
+    height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-restaurante img {
+    height: 52px;
+  }
+
+  .empresa-branding img {
+    height: 32px;
+  }
+
+  .empresa-branding span {
+    font-size: 9px;
+    margin-top: 4px;
+  }
+
+  .cabecalho .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
