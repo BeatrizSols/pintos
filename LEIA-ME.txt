@@ -1,4 +1,6 @@
 SALES PINTO'S - CARDÁPIO DIGITAL
+Alunos: Ana Beatriz Sales Pinto Oliveira; Luiz Eduardo Santana Pinto
+
 Sistema desenvolvido por Xiboc Soluções
 
 ESTRUTURA DE ARQUIVOS
@@ -20,15 +22,9 @@ assets/js/imagens.js    -> lógica da página de imagens
 
 assets/img/logo-restaurante.jpg -> logo do Sales Pinto's
 assets/img/logo-empresa.jpg      -> logo da Xiboc Soluções
-assets/img/produtos/             -> pasta onde entram as fotos dos produtos
+assets/img/produtos/             -> pasta onde entram as fotos dos produtos (se tivermos tempo)
 
-COMO ADICIONAR AS FOTOS DOS PRODUTOS
--------------------------------------
-Abra a página imagens.html: cada produto mostra o nome do arquivo
-esperado (por exemplo assets/img/produtos/picanha-grelhada.jpg).
-Basta salvar a foto com esse nome exato dentro da pasta
-assets/img/produtos/ que ela passa a aparecer automaticamente no
-cardápio. Enquanto não houver arquivo, aparece "Sem imagem" no lugar.
+---> Podemos colocar fotos depois/aprimorar o visual em outras atividades (agora não tem tempo!), os caminhoos tão td ok
 
 COMO ABRIR
 -----------
