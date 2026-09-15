@@ -1,0 +1,36 @@
+SALES PINTO'S - CARDÁPIO DIGITAL
+Sistema desenvolvido por Xiboc Soluções
+
+ESTRUTURA DE ARQUIVOS
+----------------------
+index.html            -> página inicial
+cardapio.html          -> cardápio completo, pesquisa, filtro, meu pedido,
+                          identificação, resumo, pagamento e confirmação
+imagens.html            -> página dedicada só para conferir/anexar as fotos
+                          de cada produto (150 itens)
+
+assets/css/base.css    -> cores, tipografia e cabeçalho (compartilhado)
+assets/css/home.css     -> estilo exclusivo da página inicial
+assets/css/cardapio.css -> estilo do cardápio e do fluxo de pedido
+assets/css/imagens.css  -> estilo da página de imagens
+
+assets/js/produtos.js  -> os 150 produtos (dados), em arrays e objetos
+assets/js/cardapio.js  -> lógica do cardápio, pesquisa, filtro e pedido
+assets/js/imagens.js    -> lógica da página de imagens
+
+assets/img/logo-restaurante.jpg -> logo do Sales Pinto's
+assets/img/logo-empresa.jpg      -> logo da Xiboc Soluções
+assets/img/produtos/             -> pasta onde entram as fotos dos produtos
+
+COMO ADICIONAR AS FOTOS DOS PRODUTOS
+-------------------------------------
+Abra a página imagens.html: cada produto mostra o nome do arquivo
+esperado (por exemplo assets/img/produtos/picanha-grelhada.jpg).
+Basta salvar a foto com esse nome exato dentro da pasta
+assets/img/produtos/ que ela passa a aparecer automaticamente no
+cardápio. Enquanto não houver arquivo, aparece "Sem imagem" no lugar.
+
+COMO ABRIR
+-----------
+Basta abrir o arquivo index.html em qualquer navegador. Não é
+necessário instalar nada, não há backend nem banco de dados.

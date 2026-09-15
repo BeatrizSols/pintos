@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio - Sales Pinto's</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/cardapio.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="container">
+    <div class="logo-restaurante">
+      <img src="assets/img/logo-restaurante.jpg" alt="Sales Pinto's">
+    </div>
+    <div class="empresa-branding">
+      <img src="assets/img/logo-empresa.jpg" alt="Xiboc Soluções">
+      <span>Sistema desenvolvido por Xiboc Soluções</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== TELA: CARDÁPIO ===================== -->
+<section id="tela-cardapio" class="tela">
+
+  <div class="barra-pedido container">
+    <a href="index.html" class="link-voltar-inicio">&larr; Início</a>
+    <button id="botao-meu-pedido" class="botao botao-destaque">MEU PEDIDO (0)</button>
+  </div>
+
+  <div class="container">
+    <div class="ferramentas">
+      <input type="text" id="campo-pesquisa" placeholder="Pesquisar produto" autocomplete="off">
+      <select id="filtro-categoria">
+        <option value="Todos">Todos</option>
+        <option value="Entradas">Entradas</option>
+        <option value="Prato Principal">Prato Principal</option>
+        <option value="Sobremesas">Sobremesas</option>
+        <option value="Bebidas">Bebidas</option>
+        <option value="Carta de Vinhos">Carta de Vinhos</option>
+      </select>
+    </div>
+
+    <nav class="menu-categorias" id="menu-categorias">
+      <a href="#secao-entradas">ENTRADAS</a>
+      <a href="#secao-prato-principal">PRATO PRINCIPAL</a>
+      <a href="#secao-sobremesas">SOBREMESAS</a>
+      <a href="#secao-bebidas">BEBIDAS</a>
+      <a href="#secao-carta-de-vinhos">CARTA DE VINHOS</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <p id="mensagem-sem-resultado" class="sem-resultado" hidden>Nenhum produto encontrado.</p>
+
+    <!-- Resultado de pesquisa (aparece somente quando há texto pesquisado) -->
+    <div id="secao-resultados" class="secao-categoria" hidden>
+      <h2>Resultados da pesquisa</h2>
+      <div class="grade-produtos" id="grade-resultados"></div>
+    </div>
+
+    <div id="secoes-categorias">
+      <div class="secao-categoria" id="secao-entradas">
+        <h2>Entradas</h2>
+        <div class="grade-produtos" data-categoria="Entradas"></div>
+      </div>
+
+      <div class="secao-categoria" id="secao-prato-principal">
+        <h2>Prato Principal</h2>
+        <div class="grade-produtos" data-categoria="Prato Principal"></div>
+      </div>
+
+      <div class="secao-categoria" id="secao-sobremesas">
+        <h2>Sobremesas</h2>
+        <div class="grade-produtos" data-categoria="Sobremesas"></div>
+      </div>
+
+      <div class="secao-categoria" id="secao-bebidas">
+        <h2>Bebidas</h2>
+        <div class="grade-produtos" data-categoria="Bebidas"></div>
+      </div>
+
+      <div class="secao-categoria" id="secao-carta-de-vinhos">
+        <h2>Carta de Vinhos</h2>
+        <div class="grade-produtos" data-categoria="Carta de Vinhos"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TELA: MEU PEDIDO ===================== -->
+<section id="tela-pedido" class="tela" hidden>
+  <div class="container">
+    <h2>Meu Pedido</h2>
+
+    <div id="lista-pedido"></div>
+    <p id="pedido-vazio" class="sem-resultado" hidden>Seu pedido está vazio.</p>
+
+    <div class="opcao-garcom">
+      <label>
+        <input type="checkbox" id="checkbox-garcom">
+        Adicionar 10% do garçom
+      </label>
+    </div>
+
+    <div class="resumo-valores">
+      <div class="linha-valor"><span>Subtotal</span><span id="valor-subtotal">R$ 0,00</span></div>
+      <div class="linha-valor"><span>10% do garçom</span><span id="valor-garcom">R$ 0,00</span></div>
+      <div class="linha-valor linha-total"><span>Total</span><span id="valor-total">R$ 0,00</span></div>
+    </div>
+
+    <div class="acoes-tela">
+      <button id="botao-voltar-cardapio" class="botao botao-secundario">Voltar ao Cardápio</button>
+      <button id="botao-finalizar-pedido" class="botao botao-destaque">FINALIZAR PEDIDO</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TELA: IDENTIFICAÇÃO ===================== -->
+<section id="tela-identificacao" class="tela" hidden>
+  <div class="container container-estreito">
+    <h2>Identificação</h2>
+    <form id="formulario-identificacao">
+      <label for="campo-nome-cliente">Nome do cliente</label>
+      <input type="text" id="campo-nome-cliente" required>
+
+      <label for="campo-mesa">Número da mesa</label>
+      <input type="text" id="campo-mesa" required>
+
+      <div class="acoes-tela">
+        <button type="button" id="botao-voltar-pedido" class="botao botao-secundario">Voltar</button>
+        <button type="submit" class="botao botao-destaque">CONTINUAR</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== TELA: RESUMO ===================== -->
+<section id="tela-resumo" class="tela" hidden>
+  <div class="container container-estreito">
+    <h2>Resumo do Pedido</h2>
+
+    <div class="dados-cliente">
+      <p><strong>Cliente:</strong> <span id="resumo-nome"></span></p>
+      <p><strong>Mesa:</strong> <span id="resumo-mesa"></span></p>
+    </div>
+
+    <div id="resumo-itens"></div>
+
+    <div class="resumo-valores">
+      <div class="linha-valor"><span>Subtotal</span><span id="resumo-subtotal">R$ 0,00</span></div>
+      <div class="linha-valor"><span>10% do garçom</span><span id="resumo-garcom">R$ 0,00</span></div>
+      <div class="linha-valor linha-total"><span>Total</span><span id="resumo-total">R$ 0,00</span></div>
+    </div>
+
+    <div class="acoes-tela">
+      <button id="botao-voltar-identificacao" class="botao botao-secundario">Voltar</button>
+      <button id="botao-continuar-pagamento" class="botao botao-destaque">CONTINUAR PARA PAGAMENTO</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TELA: PAGAMENTO ===================== -->
+<section id="tela-pagamento" class="tela" hidden>
+  <div class="container container-estreito">
+    <h2>Forma de Pagamento</h2>
+
+    <div class="opcoes-pagamento">
+      <label><input type="radio" name="pagamento" value="Dinheiro"> Dinheiro</label>
+      <label><input type="radio" name="pagamento" value="Cartão de crédito"> Cartão de crédito</label>
+      <label><input type="radio" name="pagamento" value="Cartão de débito"> Cartão de débito</label>
+      <label><input type="radio" name="pagamento" value="PIX"> PIX</label>
+    </div>
+
+    <div class="linha-valor linha-total">
+      <span>Total a pagar</span><span id="pagamento-total">R$ 0,00</span>
+    </div>
+
+    <div class="acoes-tela">
+      <button id="botao-voltar-resumo" class="botao botao-secundario">Voltar</button>
+      <button id="botao-confirmar-pedido" class="botao botao-destaque">CONFIRMAR PEDIDO</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TELA: CONFIRMAÇÃO ===================== -->
+<section id="tela-confirmacao" class="tela" hidden>
+  <div class="container container-estreito">
+    <h2>Pedido realizado com sucesso.</h2>
+
+    <div class="dados-cliente">
+      <p><strong>Nome:</strong> <span id="confirmacao-nome"></span></p>
+      <p><strong>Mesa:</strong> <span id="confirmacao-mesa"></span></p>
+    </div>
+
+    <div id="confirmacao-itens"></div>
+
+    <div class="resumo-valores">
+      <div class="linha-valor linha-total"><span>Total</span><span id="confirmacao-total">R$ 0,00</span></div>
+      <div class="linha-valor"><span>Forma de pagamento</span><span id="confirmacao-pagamento"></span></div>
+    </div>
+
+    <div class="acoes-tela">
+      <button id="botao-voltar-inicio" class="botao botao-destaque">VOLTAR AO INÍCIO</button>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="container">
+    Sales Pinto's Restaurante
+  </div>
+</footer>
+
+<script src="assets/js/produtos.js"></script>
+<script src="assets/js/cardapio.js"></script>
+</body>
+</html>
